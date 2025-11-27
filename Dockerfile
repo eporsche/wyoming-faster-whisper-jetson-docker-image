@@ -43,7 +43,8 @@ ENV WHISPER_PORT=10300 \
     WHISPER_COMPUTE_TYPE=int8 \
     WHISPER_LANGUAGE=de \
     WHISPER_DEBUG=false \
-    WHISPER_OFFLINE=false
+    WHISPER_OFFLINE=false \
+    WHISPER_STT_LIBRARY=sherpa
 
 CMD ["/start_wyoming-faster-whisper"]
 

@@ -26,5 +26,5 @@ exec python3 -m wyoming_faster_whisper \
     --zeroconf nexus-stt \
     --data-dir /data/models/faster-whisper \
     --download-dir /data/models/faster-whisper \
-    --stt-library faster-whisper \
+    --stt-library "${WHISPER_STT_LIBRARY}"  \
     ${flags[@]}
