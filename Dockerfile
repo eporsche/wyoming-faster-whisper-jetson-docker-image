@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv for faster Python package installation
-RUN python3 -m pip install --no-cache-dir uv twine
+RUN python3 -m pip install --no-cache-dir uv
 
 # Copy the build script
 COPY build_ctranslate2 /build_ctranslate2
