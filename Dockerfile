@@ -18,7 +18,7 @@ RUN \
         setuptools \
         wheel \
     && pip3 install --no-cache-dir \
-        --extra-index-url 'https://download.pytorch.org/whl/cpu' \
+        --extra-index-url 'https://download.pytorch.org/whl/cu122' \
         'torch==2.6.0' \
     \
     && rm -rf /var/lib/apt/lists/*
@@ -47,4 +47,10 @@ ENV WHISPER_PORT=10300 \
 
 CMD ["/start_wyoming-faster-whisper"]
 
-EXPOSE 10300
+EXPOSE ${WHISPER_PORT}/tcp
+
+HEALTHCHECK --start-period=10m \
+    CMD echo '{ "type": "describe" }' \
+        | nc -w 1 localhost ${WHISPER_PORT} \
+        | grep -q "faster-whisper" \
+        || exit 1
