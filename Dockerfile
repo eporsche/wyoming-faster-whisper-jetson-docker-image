@@ -12,6 +12,7 @@ RUN chmod +x /start_wyoming-faster-whisper
 RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
+        netcat-openbsd \
         libcudnn8-dev \
         python3 \
         python3-pip \
