@@ -21,7 +21,7 @@ RUN \
         setuptools \
         wheel \
     && pip3 install --no-cache-dir \
-        --extra-index-url 'https://download.pytorch.org/whl/cu122' \
+        --extra-index-url 'https://pypi.jetson-ai-lab.io/jp6/cu126' \
         'torch==2.6.0' \
     \
     && rm -rf /var/lib/apt/lists/*
@@ -58,8 +58,8 @@ CMD ["/start_wyoming-faster-whisper"]
 
 EXPOSE ${WHISPER_PORT}/tcp
 
-HEALTHCHECK --start-period=10m \
-    CMD echo '{ "type": "describe" }' \
-        | nc -w 1 localhost ${WHISPER_PORT} \
-        | grep -q "faster-whisper" \
-        || exit 1
+# HEALTHCHECK --start-period=10m \
+#     CMD echo '{ "type": "describe" }' \
+#         | nc -w 1 localhost ${WHISPER_PORT} \
+#         | grep -q "faster-whisper" \
+#         || exit 1
