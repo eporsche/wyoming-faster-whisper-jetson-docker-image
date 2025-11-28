@@ -35,6 +35,7 @@ RUN set -e \
     && mkdir -p /tmp/wyoming-faster-whisper && cd /tmp/wyoming-faster-whisper \
     && wget $WGET_FLAGS "${WYOMING_FASTER_WHISPER_URL}/wyoming_faster_whisper-${WYOMING_FASTER_WHISPER_VERSION}-py3-none-any.whl" \
     && python3 -m pip install --no-cache-dir "wyoming_faster_whisper-${WYOMING_FASTER_WHISPER_VERSION}-py3-none-any.whl" \
+    && python3 -m pip install --no-cache-dir zeroconf \
     && rm "wyoming_faster_whisper-${WYOMING_FASTER_WHISPER_VERSION}-py3-none-any.whl" \
     && cd /app && rm -rf /tmp/wyoming-faster-whisper
 
