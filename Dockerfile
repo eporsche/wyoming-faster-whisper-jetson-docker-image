@@ -13,17 +13,12 @@ RUN \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         netcat-openbsd \
-        libcudnn8-dev \
         python3 \
         python3-pip \
     \
     && pip3 install --no-cache-dir -U \
         setuptools \
         wheel \
-    && pip3 install --no-cache-dir \
-        --extra-index-url 'https://pypi.jetson-ai-lab.io/jp6/cu126' \
-        'torch==2.6.0' \
-    \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y wget ca-certificates && rm -rf /var/lib/apt/lists/*
